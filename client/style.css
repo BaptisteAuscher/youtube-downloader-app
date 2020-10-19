@@ -91,7 +91,6 @@ body {
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    gap: 8px;
     align-items: center;
 }
 
@@ -104,6 +103,18 @@ body {
     opacity: .5;
     transform: translate(-50%, -50%) scale(0);
     animation: ripple .3s ease-in; 
+}
+
+@supports (gap: 8px) {
+    .form__button {
+        gap: 8px;
+    }
+}
+
+@supports not (gap: 8px) {
+    .form__button img {
+        display: none;
+    }
 }
 
 @keyframes ripple{
