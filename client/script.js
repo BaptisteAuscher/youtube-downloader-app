@@ -20,6 +20,15 @@ input.addEventListener('blur', (e) => {
     e.target.parentElement.classList.remove('is-focused');
 });
 
+button.addEventListener('click', (e) => {
+    let circle = document.createElement('div');
+    circle.classList.add('ripple');
+    button.appendChild(circle);
+    circle.style.top = e.clientY - button.offsetTop + 'px';
+    circle.style.left = e.clientX - button.offsetLeft + 'px';
+    setTimeout(() => button.removeChild(circle), 1000);
+});
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 

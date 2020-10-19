@@ -12,6 +12,7 @@ body {
 .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .input-cell {
@@ -61,24 +62,6 @@ body {
     transition: transform .3s;
 }
 
-.form__button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    background-color: #6a2c70;
-    letter-spacing: 2px;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Montserrat';
-}
-
-.form__button:active {
-    outline: 2px solid #6a2c70;
-}
-
 .is-focused .form__label {
     color: #6a2c70;
 }
@@ -90,6 +73,44 @@ body {
 .is-focused::after {
     transform: scaleX(1);
     background-color: #6a2c70;
+}
+
+.form__button {
+    width: 100%;
+    padding: 9px 16px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: #6a2c70;
+    color: white;
+    cursor: pointer;
+    font-family: 'Libre Franklin';
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}
+
+.form__button .ripple {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    opacity: .5;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple .3s ease-in; 
+}
+
+@keyframes ripple{
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
+    }
 }
 
 @media screen and (max-width: 768px) {
