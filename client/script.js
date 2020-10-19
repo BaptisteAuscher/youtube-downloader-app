@@ -1,6 +1,13 @@
 const input = document.querySelector('#url-input');
 const button = document.querySelector('#url-button');
+const inputCell = document.querySelector('#input-cell');
 const form = document.querySelector('form');
+
+window.addEventListener('load', () => {
+    if (input.value !== "") {
+        inputCell.classList.add('has-label');
+    }
+});
 
 input.addEventListener('focus', (e) => {
     e.target.parentElement.classList.add('is-focused', 'has-label');
