@@ -14,15 +14,17 @@
                 <label for="url-input" class="form__label">YouTube URL</label>
                 <input type="text" name="url-input" id="url-input" class="form__input">
             </div>
-            <div class="radio-container">
-                <div class="radio-cell">
-                    <input type="radio" name="format" id="audio" value="audio">
-                    <label for="audio">Audio</label>
-                </div>
-                <div class="radio-cell">
-                    <input type="radio" name="format" id="video" value="video" checked>
-                    <label for="video">Video</label>
-                </div>
+            <div class="form__radio">
+                <label for="audio" class="radio">
+                    <input type="radio" name="format" id="audio" value="audio" class="radio__input">
+                    <div class="radio__radio"></div>
+                    <div class="radio__label">Audio (mp3)</div>
+                </label>
+                <label for="video" class="radio">
+                    <input type="radio" name="format" id="video" value="video" class="radio__input" checked>
+                    <div class="radio__radio"></div>
+                    <div class="radio__label">Video (mp4)</div>
+                </label>
             </div>
             <button type="submit" id="url-button" class="form__button">
                 <img src="./icons/download.svg" alt="">

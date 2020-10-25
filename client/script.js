@@ -1,8 +1,8 @@
 const input = document.querySelector('#url-input');
-const radio = document.querySelector('input[type=radio]');
 const button = document.querySelector('#url-button');
 const inputCell = document.querySelector('#input-cell');
 const form = document.querySelector('form');
+
 
 window.addEventListener('load', () => {
     if (input.value !== "") {
@@ -20,6 +20,7 @@ input.addEventListener('blur', (e) => {
     }
     e.target.parentElement.classList.remove('is-focused');
 });
+
 
 button.addEventListener('click', (e) => {
     let circle = document.createElement('div');
