@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
     if (input.value === "") {
         return true;
     } else {
-        window.location.href = `http://localhost:3000/download?URL=${input.value}&format=${form.format.value}`;
-        //window.location.href = `https://youtube-downloader-server-exp.herokuapp.com/download?URL=${input.value}`;
+        //window.location.href = `http://localhost:3000/download?URL=${input.value}&format=${form.format.value}`;
+        window.location.href = `https://youtube-downloader-server-exp.herokuapp.com/download?URL=${input.value}&format=${form.format.value}`;
     }
 });
