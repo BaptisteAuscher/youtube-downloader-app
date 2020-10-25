@@ -1,4 +1,5 @@
 const input = document.querySelector('#url-input');
+const radio = document.querySelector('input[type=radio]');
 const button = document.querySelector('#url-button');
 const inputCell = document.querySelector('#input-cell');
 const form = document.querySelector('form');
@@ -31,11 +32,10 @@ button.addEventListener('click', (e) => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     if (input.value === "") {
         return true;
     } else {
-        window.location.href = `http://localhost:3000/download?URL=${input.value}`;
+        window.location.href = `http://localhost:3000/download?URL=${input.value}&format=${form.format.value}`;
         //window.location.href = `https://youtube-downloader-server-exp.herokuapp.com/download?URL=${input.value}`;
     }
 });

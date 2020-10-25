@@ -10,16 +10,25 @@ app.get('/', (req, res) => {
 })
 
 app.get('/download', async (req, res) => {
-
+    let format = req.query.format
     let URL = req.query.URL
-    if (!URL) {
+    console.log(format)
+    if (!URL || !format) {
         res.send('No url there')
     }
 
     if (ytdl.validateURL(URL)) {
         let info = await ytdl.getInfo(URL)
-        res.header('Content-Disposition', `attachment;filename="${info.videoDetails.title}.mp4"`)
-        ytdl(URL, {quality: 'highest'}).pipe(res);
+        switch (format) {
+            case 'audio':
+                res.header('Content-Disposition', `attachment;filename="${info.videoDetails.title}.mp3"`)
+                ytdl(URL, {quality: 'highest', filter: 'audioonly'}).pipe(res);
+                break;
+            case 'video':
+                res.header('Content-Disposition', `attachment;filename="${info.videoDetails.title}.mp4"`)
+                ytdl(URL, {quality: 'highest'}).pipe(res);
+                break;
+        }
     } else {
         res.send('Not valid url')
     }
